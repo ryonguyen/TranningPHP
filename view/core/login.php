@@ -3,9 +3,7 @@ setcookie("array_save", "1", time());
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Search web</title>
@@ -14,7 +12,7 @@ setcookie("array_save", "1", time());
 <!--<form name="login" method="POST" action="../action/action_login.php">-->
 
 
-<form name="login" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+<form name="login" method="POST">
     Title : <br/>
     <input type="text" name="value_title"/>
     Content:<br/>
@@ -51,15 +49,14 @@ setcookie("array_save", "1", time());
 
     $max = count($array_news);
     for ($i = 0; $i < $max; $i++) {
-       $value = $array_news[$i];
-        echo "<a   href='detail.php?title='". $value->title.">".$value->title."</a> <br/>";
-        echo '<label>'.$value->content.'<label/> <br/>';
-//        array_push($array_news, $array[$i]);
+        $value = $array_news[$i];
+        echo "<a   href='detail.php?title=" . $value->title . "&content=".$value->content."'>" . $value->title . "</a> <br/> <label> " . $value->content . "<label/> <br/>";
     }
 
     ?>
 
     <input type="submit" name="submit_name" value="Nhap gia tri"/>
+    <br/>
 </form>
 <?php
 
